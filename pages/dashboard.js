@@ -12,10 +12,9 @@ exports.Dashboard = class Dashboard{
     async link_Pim(){
         await this.page.click(this.pimLink);
     }
+    
     async link_logout(){
         await this.page.click(this.userDropdown);
-        await this.page.click(this.logout);
-        
+        await this.page.click(this.logout); 
     }
-    
-    }
+}

@@ -1,11 +1,12 @@
 const {test} = require('@playwright/test');
 const {LoginPage} = require('../pages/loginPage');
 const {Dashboard} = require('../pages/dashboard');
+const {Pim} = require('../pages/pim');
 
 
 test.describe("Add Employee", ()=> {
 
-    let x = Math.floor((Math.random() * 1000) + 1)
+    
     test.beforeEach(async({page})=> {
         const login = new LoginPage(page);
         const dashboard = new Dashboard(page);
@@ -20,9 +21,9 @@ test.describe("Add Employee", ()=> {
     });
 
 
-test(`user should be able to add employees5@reg: `, async ({page}) => {
+test(`user should be able to add employees@reg: `, async ({page}) => {
+        const x = Math.floor((Math.random() * 1000) + 1)
         const employee = {FirstName:`fN1a1me${x} `, MiddleName:"mN1a1me", LastName:"lN1am1e", EmployeeId:`e1eId${x}`, Username:`us1na${x}`, Password:"Password12", ConfirmPassword:"Password12"}
-        console.log(employee.FirstName)
         const login = new LoginPage(page);
         const dashboard = new Dashboard(page);
         const pim = new Pim(page);

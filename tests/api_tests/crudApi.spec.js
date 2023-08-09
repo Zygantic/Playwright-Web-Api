@@ -1,8 +1,9 @@
 const { test, expect } = require('@playwright/test');
-var userId;
+let url = "https://reqres.in/api/users/";
+let userId;
 
-test('Test to get and post', async ({ request }) => {
-    const getRequest = await request.get(`https://reqres.in/api/users?page=2`, {
+test('should successfully response on get request', async ({ request }) => {
+    const getRequest = await request.get(url, {
     });
     const res = await getRequest.json();
     await expect(getRequest.ok()).toBeTruthy();
@@ -11,7 +12,7 @@ test('Test to get and post', async ({ request }) => {
 });
 
 test('should Post a request', async ({ request }) => {
-    const response = await request.post(`https://reqres.in/api/users`, {
+    const response = await request.post(url, {
         data: {
             "name": "morpheus",
             "job": "leader"
@@ -25,7 +26,7 @@ test('should Post a request', async ({ request }) => {
 });
 
 test('should update a request', async ({ request }) => {
-    const response = await request.put(`https://reqres.in/api/users/`+ userId, {
+    const response = await request.put(url + userId, {
         data: {
             "name": "morpheusEdit",
             "job": "leaderEdit"
@@ -37,7 +38,7 @@ test('should update a request', async ({ request }) => {
 });
 
 test('should delete a request', async ({ request }) => {
-    const response = await request.delete(`https://reqres.in/api/users/`+ userId, {
+    const response = await request.delete(url + userId, {
     });
     await expect(response.status()).toBe(204)
 });
