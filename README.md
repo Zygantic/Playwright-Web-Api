@@ -9,7 +9,7 @@ npm init playwright@latest
 # Clone Project.
 
 # Run api test.
-npm playwright test tests/api_tests/crudApi.spec.js
+npx playwright test tests/api_tests/crudApi.spec.js
 
 # Run web test.
 npx playwright test tests/{filename}
